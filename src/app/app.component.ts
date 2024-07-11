@@ -14,6 +14,6 @@ export class AppComponent {
   constructor(private cocktailService: CocktailService) {}
 
   ngOnInit(): void {
-    console.log(this.cocktailService.getCocktailById("15300"));
+    console.log(this.cocktailService.getWikiData("slovenia"));
   }
 }
