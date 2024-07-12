@@ -6,16 +6,3 @@
   gap:  24px 12px ;
 }
 
-.alcohol {
-  padding: 10px 24px;
-  border-radius: var(--radius);
-  color: var(--primary);
-  border: 2px solid var(--primary);
-  cursor: pointer;
-  font-size: 20px;
-  transition: var(--transition);
-}
-.alcohol:hover {
-  color: white;
-  background: var(--primary);
-}

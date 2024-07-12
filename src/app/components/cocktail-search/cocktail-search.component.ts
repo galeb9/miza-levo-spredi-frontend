@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-cocktail-search',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './cocktail-search.component.html',
   styleUrl: './cocktail-search.component.css'
 })
@@ -52,5 +53,4 @@ export class CocktailSearchComponent {
     'Liqueurs',
     'Moonshine'
   ];
-
 }

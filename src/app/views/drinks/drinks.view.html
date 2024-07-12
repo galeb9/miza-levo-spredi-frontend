@@ -1,0 +1,17 @@
+<div class="drinks-container">
+
+  <h1 *ngIf="drink">Your drinks for <span>{{ drink.toUpperCase() }}</span></h1>
+  <div class="drinks" *ngIf="drinks.drinks.length > 0">
+    <div *ngFor="let drink of drinks.drinks" class="drink">
+      <img [src]="drink.strDrinkThumb">
+      <div>
+        <h3>{{ drink.strDrink }}</h3>
+        <a   class="btn" [routerLink]="'/details/' + drink.idDrink">
+          view
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+
 import {HeaderComponent} from "./components/header/header.component";
 import {FooterComponent} from "./components/footer/footer.component";
-import { CocktailService } from './services/cocktail.service';
 
 @Component({
   selector: 'app-root',
@@ -13,9 +13,5 @@ import { CocktailService } from './services/cocktail.service';
 })
 export class AppComponent {
   title = 'cocktail-fe';
-  constructor(private cocktailService: CocktailService) {}
 
-  ngOnInit(): void {
-      console.log(this.cocktailService.getCocktailByAlcohol("vodka"));
-  }
 }

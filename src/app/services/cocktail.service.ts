@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
-
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,11 @@ export class CocktailService {
       console.log(cocktails);
     });
   };
+
+  getCocktails(alcohol:string): Observable<any> {
+    return this.http.get<any>(`${environment.backendBaseUrl}/cocktail/getCocktailByAlcohol?alcohol=${alcohol}`);
+  }
+
 
   getWikiData(title: string) {
     return this.http.get<String>(`${environment.backendBaseUrl}/wikipedia/cocktail/${title}`)

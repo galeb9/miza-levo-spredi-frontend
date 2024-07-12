@@ -30,6 +30,22 @@ body {
   box-shadow: var(--shadow);
 }
 
+a {
+  text-decoration: none ;
+}
+.btn {
+  padding: 6px 18px;
+  border-radius: var(--radius);
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  cursor: pointer;
+  transition: var(--transition);
+  width: max-content;
+}
+.btn:hover {
+  color: white;
+  background: var(--primary);
+}
 /*
 :host {
   --bright-blue: oklch(51.01% 0.274 263.83);
