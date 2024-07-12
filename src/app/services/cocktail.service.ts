@@ -15,25 +15,18 @@ export class CocktailService {
   cocktail: any;
 
   getCocktailById(id: string): Observable<any> {
-    return this.http.get(`${environment.backendBaseUrl}/cocktail/getCocktailById?id=${id}`)};
+    return this.http.get(`${environment.backendBaseUrl}/cocktail/getCocktailById?id=${id}`);
+  };
 
   getCocktailByAlcohol(alcohol: string) {
-    this.http.get(`${environment.backendBaseUrl}/cocktail/getCocktailByAlcohol?alcohol=${alcohol}`)
-    .subscribe(cocktails => {
-      this.cocktail = cocktails;
-      console.log(cocktails);
-    });
-    return this.cocktail;
+    return this.http.get(`${environment.backendBaseUrl}/cocktail/getCocktailByAlcohol?alcohol=${alcohol}`);
   };
 
   getWikiData(title: string) {
-    return this.http.get<String>(`${environment.backendBaseUrl}/wikipedia/cocktail/${title}`)
+    return this.http.get<String>(`${environment.backendBaseUrl}/wikipedia/cocktail/${title}`);
   };
 
   getChatGptResponse(prompt: string) {
-    return this.http.get<String>(`${environment.backendBaseUrl}/chatgpt?prompt=${prompt}`)
-    .subscribe(text => {
-      console.log(text);
-    });
-  }
+    return this.http.get<String>(`${environment.backendBaseUrl}/chatgpt?prompt=${prompt}`);
+  };
 }

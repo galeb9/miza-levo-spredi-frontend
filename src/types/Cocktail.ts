@@ -3,4 +3,5 @@ export interface Cocktail {
     name: string;
     instructions: string;
     ingredients: Object;
+    image: string;
 }
