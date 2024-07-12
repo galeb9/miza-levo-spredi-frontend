@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
+import { Observable } from 'rxjs';
+import { Cocktail } from '../../types/Cocktail';
 
 
 @Injectable({
@@ -10,18 +12,18 @@ export class CocktailService {
 
   constructor(private http: HttpClient) { }
 
-  getCocktailById(id: string) {
-    return this.http.get(`${environment.backendBaseUrl}/cocktail/getCocktailById?id=${id}`)
-    .subscribe(cocktail => {
-      console.log(cocktail);
-    });
-  };
+  cocktail: any;
+
+  getCocktailById(id: string): Observable<any> {
+    return this.http.get(`${environment.backendBaseUrl}/cocktail/getCocktailById?id=${id}`)};
 
   getCocktailByAlcohol(alcohol: string) {
-    return this.http.get(`${environment.backendBaseUrl}/cocktail/getCocktailByAlcohol?alcohol=${alcohol}`)
+    this.http.get(`${environment.backendBaseUrl}/cocktail/getCocktailByAlcohol?alcohol=${alcohol}`)
     .subscribe(cocktails => {
+      this.cocktail = cocktails;
       console.log(cocktails);
     });
+    return this.cocktail;
   };
 
   getWikiData(title: string) {

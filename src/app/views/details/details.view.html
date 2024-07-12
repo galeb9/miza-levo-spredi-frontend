@@ -1,1 +1,10 @@
-<p>details works!</p>
+<div>
+    <h1>{{cocktail.name}}</h1>
+    <img src="{{cocktail.image}}">
+    <h3>Ingredients:</h3>
+    <ul *ngFor="let item of cocktail.ingredients | keyvalue: valueAscOrder">
+        <li *ngIf="item.value!=null; else elseBlock">{{item.key}}: {{item.value}}</li>
+        <ng-template #elseBlock>{{item.key}}</ng-template>
+    </ul>
+</div>
+
