@@ -22,7 +22,6 @@ export class AppComponent {
 
       this.cocktailService.getCocktailById("15300").subscribe(data => {
         this.cocktail = data;
-        console.log(data);
       });
   }
 }
