@@ -1,1 +1,10 @@
-<p>details works!</p>
+<div>
+    <h1>{{cocktail.name}}</h1>
+    <img src="{{cocktail.image}}">
+    <h3>Ingredients:</h3>
+    <div *ngFor="let item of cocktail.ingredients | keyvalue: valueAscOrder">
+        <p>{{item.key}}: {{item.value}}</p>
+    </div>
+    <p>{{wiki.opening_text}}</p>
+</div>
+
