@@ -28,9 +28,6 @@ export class CocktailService {
 
   getWikiData(title: string) {
     return this.http.get<String>(`${environment.backendBaseUrl}/wikipedia/cocktail/${title}`)
-    .subscribe(text => {
-      console.log(text);
-    });
   };
 
   getChatGptResponse(prompt: string) {

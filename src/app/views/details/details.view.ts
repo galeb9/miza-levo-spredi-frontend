@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment.development';
 import { CommonModule, KeyValue } from '@angular/common';
 
+
 @Component({
   selector: 'app-details',
   standalone: true,
@@ -16,26 +17,33 @@ export class DetailsView implements OnInit{
   @Input()
   id: string;
 
-  constructor(private cocktailService: CocktailService) {}
-  
+  constructor(private cocktailService: CocktailService, private route: ActivatedRoute) {}
+
   cocktail: any;
   wiki : any;
 
   ngOnInit(): void {
-
-      this.cocktailService.getCocktailById("17105").subscribe(data => {
+      this.id = this.route.snapshot.paramMap.get('id');
+      this.cocktailService.getCocktailById(this.id).subscribe(data => {
         this.cocktail = data;
         console.log(data);
-        this.wiki = this.getWiki(data.name);
+        this.getWiki(data.name);
       });
       
   }
 
-  getWiki(searchString: String) {
-    return null;
+  getWiki(searchString: string) {
+    this.cocktailService.getWikiData(searchString).subscribe(data => {
+      if (data) {
+        this.wiki = data;
+      } else {
+        this.wiki = {};
+      }
+      console.log(data);
+    });
   }
 
-  valueAscOrder = (a: KeyValue<number,string>, b: KeyValue<number,string>): number => {
-    return a.value.localeCompare(b.value);
+  valueAscOrder = (a: KeyValue<string,string>, b: KeyValue<string,string>): number => {
+    return a.key.localeCompare(b.key);
   }
 }
